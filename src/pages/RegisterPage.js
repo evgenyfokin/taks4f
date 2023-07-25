@@ -58,7 +58,7 @@ const RegisterPage = () => {
                     <button type="submit" className="btn btn-primary w-100">Register</button>
                 </form>
                 {regStatus && <div className="alert alert-info mt-3">Status: {regStatus}</div>}
-                <Link to="/login" className="mt-3 d-block text-center">Already have an account? Login</Link>
+                <Link to="/" className="mt-3 d-block text-center">Already have an account? Login</Link>
             </div>
         </div>
     );
