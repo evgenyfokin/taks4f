@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
 import jwt_decode from "jwt-decode";
 
+const apiUrl = 'https://chatf-594d6adb216e.herokuapp.com' || 'http://localhost:3000'
+
 const UsersPage = () => {
     const [users, setUsers] = useState([]);
     const [selectedUsers, setSelectedUsers] = useState([]);
@@ -15,7 +17,7 @@ const UsersPage = () => {
         const getUsers = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://localhost:3000/users', {
+                const response = await axios.get(`${apiUrl}/users`, {
                     headers: { 'x-access-token': token }
                 });
                 setUsers(response.data);
@@ -54,12 +56,12 @@ const UsersPage = () => {
             const decodedToken = jwt_decode(token);
             const currentUserId = decodedToken.id;
 
-            await axios.post('http://localhost:3000/blockUsers', {
+            await axios.post(`${apiUrl}/blockUsers`, {
                 userIds: selectedUsers
             }, {
                 headers: { 'x-access-token': token }
             });
-            const response = await axios.get('http://localhost:3000/users', {
+            const response = await axios.get('${apiUrl}/users', {
                 headers: { 'x-access-token': token }
             });
 
@@ -85,14 +87,14 @@ const UsersPage = () => {
     const handleUnblock = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:3000/updateUserStatus', {
+            await axios.post(`${apiUrl}/updateUserStatus`, {
                 userIds: selectedUsers,
                 status: 'active'
             }, {
                 headers: { 'x-access-token': token }
             });
             setSelectedUsers([]);
-            const response = await axios.get('http://localhost:3000/users', {
+            const response = await axios.get(`${apiUrl}/users`, {
                 headers: { 'x-access-token': token }
             });
             setUsers(response.data);
@@ -114,13 +116,13 @@ const UsersPage = () => {
             const decodedToken = jwt_decode(token);
             const currentUserId = decodedToken.id;
 
-            await axios.post('http://localhost:3000/deleteUsers', {
+            await axios.post(`${apiUrl}/deleteUsers`, {
                 userIds: selectedUsers
             }, {
                 headers: { 'x-access-token': token }
             });
 
-            const response = await axios.get('http://localhost:3000/users', {
+            const response = await axios.get(`${apiUrl}/users`, {
                 headers: { 'x-access-token': token }
             });
 
