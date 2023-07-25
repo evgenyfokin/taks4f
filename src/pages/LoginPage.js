@@ -8,10 +8,10 @@ const LoginPage = () => {
     const [password, setPassword] = useState("");
     const [loginStatus, setLoginStatus] = useState("");
     const navigate = useNavigate();
-
+    const apiUrl = 'https://chatf-594d6adb216e.herokuapp.com' || 'http://localhost:3000'
     const login = () => {
         axios
-            .post("http://localhost:3000/login", {
+            .post(`${apiUrl}/login`, {
                 email: email,
                 password: password,
             })

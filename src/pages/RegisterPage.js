@@ -9,13 +9,14 @@ const RegisterPage = () => {
     const [password, setPassword] = useState('');
     const [regStatus, setRegStatus] = useState(null);
     const navigate = useNavigate();
+    const apiUrl = 'https://chatf-594d6adb216e.herokuapp.com' || 'http://localhost:3000'
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setRegStatus(null);
 
         try {
-            const response = await axios.post('http://localhost:3000/register', {
+            const response = await axios.post(`${apiUrl}/register`, {
                 name: name,
                 email: email,
                 password: password,
