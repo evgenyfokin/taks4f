@@ -26,7 +26,7 @@ const RegisterPage = () => {
                 setRegStatus(response.data.error);
             } else {
                 setRegStatus("Successfully registered");
-                navigate("/login")
+                navigate("/")
             }
         } catch (error) {
             if (error.response) {

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from './pages/LoginPage';
-import UserPage from './UserPage';
+import UserPage from './pages/UserPage';
 
 function App() {
     return (

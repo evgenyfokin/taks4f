@@ -11,7 +11,7 @@ const LoginPage = () => {
     const apiUrl = 'https://chatf-594d6adb216e.herokuapp.com' || 'http://localhost:3000'
     const login = () => {
         axios
-            .post(`${apiUrl}/login`, {
+            .post(`${apiUrl}/`, {
                 email: email,
                 password: password,
             })

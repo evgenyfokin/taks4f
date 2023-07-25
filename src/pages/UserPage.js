@@ -25,7 +25,7 @@ const UsersPage = () => {
                 console.error(`Error getting users: ${error}`);
                 if (error.response && error.response.status === 403) {
                     localStorage.removeItem('token');
-                    navigate('/login');
+                    navigate('/');
                 }
             }
         };
@@ -67,10 +67,9 @@ const UsersPage = () => {
 
             setUsers(response.data);
 
-            // Check if the current user was blocked
             if (selectedUsers.includes(currentUserId)) {
                 localStorage.removeItem('token');
-                navigate('/login');
+                navigate('/');
             }
 
             setSelectedUsers([]);
@@ -79,7 +78,7 @@ const UsersPage = () => {
             console.error(`Error blocking users: ${error}`);
             if (error.response && error.response.status === 403) {
                 localStorage.removeItem('token');
-                navigate('/login');
+                navigate('/');
             }
         }
     };
@@ -103,7 +102,7 @@ const UsersPage = () => {
             console.error(`Error unblocking users: ${error}`);
             if (error.response && error.response.status === 403) {
                 localStorage.removeItem('token');
-                navigate('/login');
+                navigate('/');
             }
         }
     };
@@ -130,7 +129,7 @@ const UsersPage = () => {
 
             if (selectedUsers.includes(currentUserId)) {
                 localStorage.removeItem('token');
-                navigate('/login');
+                navigate('/');
             }
 
             setSelectedUsers([]);
@@ -139,14 +138,14 @@ const UsersPage = () => {
             console.error(`Error deleting users: ${error}`);
             if (error.response && error.response.status === 403) {
                 localStorage.removeItem('token');
-                navigate('/login');
+                navigate('/');
             }
         }
     };
 
     const handleLogout = () => {
         localStorage.removeItem('token');
-        navigate('/login');
+        navigate('/');
     };
 
 
