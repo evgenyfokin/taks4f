@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import styles from './form.module.css'
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ const LoginPage = () => {
     const apiUrl = 'https://chatf-594d6adb216e.herokuapp.com' || 'http://localhost:3000'
     const login = () => {
         axios
-            .post(`${apiUrl}/`, {
+            .post(`${apiUrl}/login`, {
                 email: email,
                 password: password,
             })
@@ -35,7 +36,7 @@ const LoginPage = () => {
 
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">
-            <div className="loginPage w-25">
+            <div className="loginPage">
                 <h1 className="text-center">Login</h1>
                 <div className="mb-3">
                     <input
