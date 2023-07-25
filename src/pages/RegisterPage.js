@@ -41,7 +41,7 @@ const RegisterPage = () => {
 
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">
-            <div className="registerPage w-25">
+            <div className="registerPage">
                 <h2 className="text-center">Register</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
